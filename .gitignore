@@ -14,3 +14,13 @@ target/*
 !.vscode/launch.json
 !.vscode/extensions.json
 _site/
+
+# Azure Developer CLI
+.azure/*
+!.azure/plan.copilotmd
+!.azure/progress.copilotmd
+!.azure/summary.copilotmd
+
+# Bicep build artifacts
+infra/*.json
+!infra/main.parameters.json
