@@ -15,16 +15,17 @@
  */
 package org.springframework.samples.petclinic.owner;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-
-import org.springframework.samples.petclinic.model.NamedEntity;
+import java.util.List;
 
 /**
- * @author Juergen Hoeller Can be Cat, Dog, Hamster...
+ * Custom fragment for {@link PetRepository}.
  */
-@Entity
-@Table(name = "types")
-public class PetType extends NamedEntity {
+public interface PetRepositoryCustom {
+
+	/**
+	 * Retrieve all {@link PetType}s from the data store.
+	 * @return a Collection of {@link PetType}s.
+	 */
+	List<PetType> findPetTypes();
 
 }

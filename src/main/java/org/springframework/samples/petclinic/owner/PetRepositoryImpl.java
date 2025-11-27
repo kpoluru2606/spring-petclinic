@@ -15,16 +15,28 @@
  */
 package org.springframework.samples.petclinic.owner;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import java.util.List;
 
-import org.springframework.samples.petclinic.model.NamedEntity;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+
+import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author Juergen Hoeller Can be Cat, Dog, Hamster...
+ * Implementation of custom {@link PetRepository} functionality.
  */
-@Entity
-@Table(name = "types")
-public class PetType extends NamedEntity {
+public class PetRepositoryImpl implements PetRepositoryCustom {
+
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<PetType> findPetTypes() {
+		TypedQuery<PetType> query = entityManager.createQuery("SELECT ptype FROM PetType ptype ORDER BY ptype.name",
+				PetType.class);
+		return query.getResultList();
+	}
 
 }
