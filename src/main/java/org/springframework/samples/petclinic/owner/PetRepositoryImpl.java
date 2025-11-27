@@ -34,8 +34,8 @@ public class PetRepositoryImpl implements PetRepositoryCustom {
 	@Override
 	@Transactional(readOnly = true)
 	public List<PetType> findPetTypes() {
-		TypedQuery<PetType> query = entityManager.createQuery(
-				"SELECT ptype FROM PetType ptype ORDER BY ptype.name", PetType.class);
+		TypedQuery<PetType> query = entityManager.createQuery("SELECT ptype FROM PetType ptype ORDER BY ptype.name",
+				PetType.class);
 		return query.getResultList();
 	}
 
