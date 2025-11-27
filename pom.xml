@@ -82,6 +82,12 @@
       <scope>runtime</scope>
     </dependency>
 
+    <!-- Azure Cosmos DB for Cassandra - Uses Service Connector with Managed Identity -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-cassandra</artifactId>
+    </dependency>
+
     <!-- caching -->
     <dependency>
       <groupId>javax.cache</groupId>
