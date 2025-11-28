@@ -33,7 +33,7 @@ import org.springframework.context.annotation.Configuration;
 class CacheConfiguration {
 
 	@Bean
-	public JCacheManagerCustomizer petclinicCacheConfigurationCustomizer() {
+	JCacheManagerCustomizer petclinicCacheConfigurationCustomizer() {
 		return cm -> {
 			cm.createCache("vets", cacheConfiguration());
 		};
